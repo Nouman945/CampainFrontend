@@ -20,173 +20,19 @@ export const appChatSlice = createSlice({
     messFeed: [],
     user: {},
     contacts: [
-      {
-        id: 1,
-        fullName: "Kathryn Murphy",
-        role: "Frontend Developer",
-        lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
-        unredmessage: Math.floor(Math.random() * 10),
-        avatar: image2,
-        status: "offline",
-      },
-      {
-        id: 2,
-        fullName: "Felecia Rower",
-        role: " UI/UX Designer",
-        lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
-        unredmessage: Math.floor(Math.random() * 10),
-        avatar: image3,
-        status: "active",
-      },
-      {
-        id: 3,
-        fullName: " Aileen Chavez",
-        role: " Backend Developer",
-        lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
-        unredmessage: Math.floor(Math.random() * 10),
-        avatar: image4,
-        status: "offline",
-      },
-      {
-        id: 4,
-        fullName: "Alec Thompson",
-        role: " Full Stack Developer",
-        lastmessage: "Hey! there I'm available",
-        lastmessageTime: "2:30 PM",
-        unredmessage: Math.floor(Math.random() * 10),
-        avatar: image5,
-        status: "active",
-      },
+      
       {
         id: 5,
-        fullName: "Murphy Aileen",
+        fullName: "BI Assitant",
         role: "Frontend Developer",
         lastmessage: "Hey! there I'm available",
         lastmessageTime: "2:30 PM",
         unredmessage: Math.floor(Math.random() * 10),
-        avatar: image1,
+        // avatar: image1,
         status: "offline",
       },
     ],
     chats: [
-      {
-        id: 1,
-        userId: 1,
-        messages: [
-          {
-            img: image2,
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
-          },
-          {
-            img: image2,
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
-
-            sender: "them",
-          },
-          {
-            content: "Hi, I am good, what about you?",
-            img: image1,
-            time: "10:01",
-            sender: "me",
-          },
-
-          {
-            content: "Thanks, It will be great.",
-            img: image1,
-            time: "10:03",
-            sender: "me",
-          },
-          {
-            img: image2,
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
-          },
-          {
-            img: image2,
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
-
-            sender: "them",
-          },
-          {
-            content: "Hi, I am good, what about you?",
-            img: image1,
-            time: "10:01",
-            sender: "me",
-          },
-
-          {
-            content: "Thanks, It will be great.",
-            img: image1,
-            time: "10:03",
-            sender: "me",
-          },
-        ],
-      },
-      {
-        id: 2,
-        userId: 2,
-        messages: [
-          {
-            img: image2,
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
-          },
-          {
-            img: image2,
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
-
-            sender: "them",
-          },
-        ],
-      },
-      {
-        id: 3,
-        userId: 3,
-        messages: [
-          {
-            img: image2,
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "them",
-          },
-          {
-            img: image2,
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
-
-            sender: "me",
-          },
-        ],
-      },
-      {
-        id: 4,
-        userId: 4,
-        messages: [
-          {
-            img: image2,
-            content: "Hey! How are you?",
-            time: "10:00",
-            sender: "me",
-          },
-          {
-            img: image2,
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
-
-            sender: "them",
-          },
-        ],
-      },
       {
         id: 5,
         userId: 5,
@@ -195,13 +41,6 @@ export const appChatSlice = createSlice({
             img: image2,
             content: "Hey! How are you?",
             time: "10:00",
-            sender: "them",
-          },
-          {
-            img: image2,
-            content: "Good, I will book the meeting room for you.",
-            time: "10:02",
-
             sender: "them",
           },
         ],

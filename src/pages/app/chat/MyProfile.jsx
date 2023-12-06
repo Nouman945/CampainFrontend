@@ -42,7 +42,7 @@ const MyProfile = () => {
   return (
     <div>
       <header>
-        <div className="flex px-6 pt-6">
+        {/* <div className="flex px-6 pt-6">
           <div className="flex-1">
             <div className="flex space-x-3 rtl:space-x-reverse">
               <div className="flex-none">
@@ -73,8 +73,8 @@ const MyProfile = () => {
               <Icon icon="heroicons-outline:dots-horizontal" />
             </div>
           </div>
-        </div>
-        <CSSTransition
+        </div> */}
+        {/* <CSSTransition
           in={openProfile}
           timeout={300}
           nodeRef={nodeRef}
@@ -139,7 +139,7 @@ const MyProfile = () => {
               <Button text="Logout" className="btn-dark " />
             </SimpleBar>
           </div>
-        </CSSTransition>
+        </CSSTransition> */}
       </header>
     </div>
   );

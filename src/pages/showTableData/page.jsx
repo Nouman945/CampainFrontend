@@ -16,7 +16,7 @@ const TaskTable = () => {
 
   const fetchData = async () => {
     // You would replace this with your actual API call
-    const response = await fetch(`http://127.0.0.1:8000/tasks/?file_id=${selectedFileId}`);
+    const response = await fetch(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/?file_id=${selectedFileId}`);
     const jsonData = await response.json();
     setTasks(jsonData);
   };
@@ -44,7 +44,7 @@ const TaskTable = () => {
     try {
       notification.success({ message: 'Task updated successfully!' });
       setIsModalVisible(false);
-      const response = await axios.put(`http://127.0.0.1:8000/tasks/${editingTask.id}/`, {
+      const response = await axios.put(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${editingTask.id}/`, {
         ...values,
         start_date: values.start_date.format('YYYY-MM-DD'),
         end_date: values.end_date.format('YYYY-MM-DD'),
@@ -66,7 +66,7 @@ const TaskTable = () => {
 
   const handleDelete = async (taskId) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/tasks/${taskId}/`);
+      await axios.delete(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${taskId}/`);
       notification.success({ message: 'Task deleted successfully!' });
       fetchData(); // Refresh the list
     } catch (error) {
@@ -161,7 +161,7 @@ const TaskTable = () => {
   const handleUrgencyChange = async (urgency, taskId) => {
     try {
       notification.success({ message: 'Urgency updated successfully!' });
-      await axios.patch(`http://127.0.0.1:8000/tasks/${taskId}/`, { urgency });
+      await axios.patch(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${taskId}/`, { urgency });
       fetchData(); // Refresh the list
     } catch (error) {
       notification.error({ message: 'There was an error updating the urgency.' });
