@@ -64,7 +64,7 @@ const LoginForm = () => {
       <Textinput
         name="email"
         label="email"
-        defaultValue="dashcode@gmail.com"
+        defaultValue="bi@gmail.com"
         type="email"
         register={register}
         error={errors.email}
@@ -74,12 +74,12 @@ const LoginForm = () => {
         name="password"
         label="passwrod"
         type="password"
-        defaultValue="dashcode"
+        defaultValue="bi@1234"
         register={register}
         error={errors.password}
         className="h-[48px]"
       />
-      <div className="flex justify-between">
+      {/* <div className="flex justify-between">
         <Checkbox
           value={checked}
           onChange={() => setChecked(!checked)}
@@ -91,7 +91,7 @@ const LoginForm = () => {
         >
           Forgot Password?{" "}
         </Link>
-      </div>
+      </div> */}
 
       <Button
         type="submit"
