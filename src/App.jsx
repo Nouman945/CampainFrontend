@@ -136,7 +136,7 @@ function App() {
   return (
     <main className="App  relative">
       <Routes>
-        <Route path="/" element={<AuthLayout />}>
+        <Route path="/" element={<UploadFiles />}>
           <Route path="/" element={<Login />} />
           <Route path="/login2" element={<Login2 />} />
           <Route path="/login3" element={<Login3 />} />

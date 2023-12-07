@@ -14,18 +14,24 @@ const TaskTable = () => {
   const [selectedFileId, setSelectedFileId] = useState(null);
 
 
-  const fetchData = async () => {
-    // You would replace this with your actual API call
-    const response = await fetch(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/?file_id=${selectedFileId}`);
-    const jsonData = await response.json();
-    setTasks(jsonData);
+  const fetchData = async (fileId) => {
+    try {
+      const response = await fetch(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/?file_id=${fileId}`);
+      const jsonData = await response.json();
+      setTasks(jsonData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
+  
 
   useEffect(() => {
     const selectedFileId = localStorage.getItem('selectedFileId');
     setSelectedFileId(selectedFileId);
     console.log(selectedFileId);
-    fetchData();
+    if(selectedFileId){
+      fetchData(selectedFileId);
+    }
   }, [selectedFileId]);
 
 
@@ -40,39 +46,50 @@ const TaskTable = () => {
   };
 
   const handleUpdate = async (values) => {
-    console.log("first",values);
     try {
-      notification.success({ message: 'Task updated successfully!' });
-      setIsModalVisible(false);
-      const response = await axios.put(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${editingTask.id}/`, {
+      // Optimistic update: Update the state immediately before making the API call
+      const updatedTasks = [...tasks];
+      const taskIndex = updatedTasks.findIndex((task) => task.id === editingTask.id);
+  
+      if (taskIndex !== -1) {
+        updatedTasks[taskIndex] = { ...editingTask, ...values };
+        setTasks(updatedTasks);
+      }
+  
+      // Make the API call
+      await axios.put(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${editingTask.id}/`, {
         ...values,
         start_date: values.start_date.format('YYYY-MM-DD'),
         end_date: values.end_date.format('YYYY-MM-DD'),
-        file_upload: editingTask.file_upload, // This should be the id of the file_upload
+        file_upload: editingTask.file_upload,
       });
-      
-      fetchData();
+  
       // Close the modal and reset the form
-      // Refresh the list
+      setIsModalVisible(false);
       form.resetFields();
-      window.location.reload();
     } catch (error) {
-      fetchData();
+      // Revert the state if the API call fails
+      setTasks([...tasks]);
       notification.error({ message: 'There was an error updating the task.' });
     }
-    fetchData();
   };
-
-
   const handleDelete = async (taskId) => {
     try {
+      // Optimistic update: Update the state immediately before making the API call
+      const updatedTasks = tasks.filter((task) => task.id !== taskId);
+      setTasks(updatedTasks);
+  
+      // Make the API call
       await axios.delete(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${taskId}/`);
+  
       notification.success({ message: 'Task deleted successfully!' });
-      fetchData(); // Refresh the list
     } catch (error) {
+      // Revert the state if the API call fails
+      setTasks([...tasks]);
       notification.error({ message: 'There was an error deleting the task.' });
     }
   };
+
   const columns = [
     {
       title: 'Task Name',
@@ -148,10 +165,8 @@ const TaskTable = () => {
       key: 'action',
       render: (_, record) => (
         <>
-          <Button onClick={() => showEditModal(record)} style={{ marginRight: 8 }}>Edit</Button>
-          <Popconfirm title="Are you sure to delete this task?" onConfirm={() => handleDelete(record.id)}>
-            <Button danger>Delete</Button>
-          </Popconfirm>
+          <Button onClick={() => showEditModal(record)} style={{ marginRight: 8 }} >Edit</Button>
+          <Button onClick={() => handleDelete(record.id)} danger>Delete</Button>
         </>
       ),
     },
@@ -160,14 +175,26 @@ const TaskTable = () => {
 
   const handleUrgencyChange = async (urgency, taskId) => {
     try {
-      notification.success({ message: 'Urgency updated successfully!' });
+      // Optimistic update: Update the state immediately before making the API call
+      const updatedTasks = [...tasks];
+      const taskIndex = updatedTasks.findIndex((task) => task.id === taskId);
+  
+      if (taskIndex !== -1) {
+        updatedTasks[taskIndex].urgency = urgency;
+        setTasks(updatedTasks);
+      }
+  
+      // Make the API call
       await axios.patch(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${taskId}/`, { urgency });
-      fetchData(); // Refresh the list
+  
+      notification.success({ message: 'Urgency updated successfully!' });
     } catch (error) {
+      // Revert the state if the API call fails
+      setTasks([...tasks]);
       notification.error({ message: 'There was an error updating the urgency.' });
     }
-    fetchData();
   };
+  
 
   return (
     <Card>

@@ -8,13 +8,15 @@ const TableComponent = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedFileId, setSelectedFileId] = useState(null);
+
   useEffect(() => {
     const selectedFileId = localStorage.getItem('selectedFileId');
     setSelectedFileId(selectedFileId);
     console.log(selectedFileId);
 
     // Fetch the data from your API endpoint here
-    fetch(`https://django-apis-0a980656a9f1.herokuapp.com/media/recent-files/${selectedFileId}`)
+    if(selectedFileId){
+      fetch(`https://django-apis-0a980656a9f1.herokuapp.com/media/recent-files/${selectedFileId}/`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -24,6 +26,8 @@ const TableComponent = () => {
         console.error('Error fetching data:', error);
         setLoading(false);
       });
+    }
+    
   }, [selectedFileId]);
 
   if (loading) {

@@ -53,7 +53,6 @@ const GanttChartComponent = ({ data }) => {
     ];
 
     setChartData([chartHeaders, ...filteredAndMappedTasks]);
-    console.log([chartHeaders, ...filteredAndMappedTasks])
   }, [tasks, startDate, endDate]);
 
   const handleStartDateChange = (date) => {
