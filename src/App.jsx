@@ -109,15 +109,15 @@ const ProjectDetailsPage = lazy(() =>
 
 const KanbanPage = lazy(() => import("./pages/app/kanban"));
 const CalenderPage = lazy(() => import("./pages/app/calendar"));
+const EcommercePage = lazy(() => import("./pages/ecommerce"));
 
 //Ecommerce-Pages
 
-const EcommercePage = lazy(() => import("./pages/ecommerce"));
-const UploadFiles = lazy(() => import("./pages/filesUploads/fileupload"));
+const CampaignDataDashboard = lazy(() => import("./pages/campainBudget/campainBudget"));
 const ScheduleTask = lazy(() => import("./pages/showTableData/page"));
 const MediaTable = lazy(() => import("./pages/mediaTable/media"));
-const CampaignDataDashboard = lazy(() => import("./pages/campainBudget/campainBudget"));
 const KPIAnalysis = lazy(() => import("./pages/KPIAnalysis/kpi-analysis"));
+const UploadFiles = lazy(() => import("./pages/filesUploads/fileupload"));
 
 import Loading from "@/components/Loading";
 import { ProductDetails } from "./pages/ecommerce/productDetails";
@@ -137,7 +137,7 @@ function App() {
     <main className="App  relative">
       <Routes>
         <Route path="/" element={<AuthLayout />}>
-          <Route path="/" element={<UploadFiles />} />
+          <Route path="/" element={<CampaignDataDashboard />} />
           <Route path="/login2" element={<Login2 />} />
           <Route path="/login3" element={<Login3 />} />
           <Route path="/register" element={<Register />} />
