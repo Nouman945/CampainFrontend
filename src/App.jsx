@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 // home pages  & dashboard
 //import Dashboard from "./pages/dashboard";
+const Dashboard = lazy(() => import("./pages/dashboard"));
 const Ecommerce = lazy(() => import("./pages/dashboard/ecommerce"));
 const CrmPage = lazy(() => import("./pages/dashboard/crm"));
 const ProjectPage = lazy(() => import("./pages/dashboard/project"));
@@ -108,11 +109,10 @@ const ProjectDetailsPage = lazy(() =>
 
 const KanbanPage = lazy(() => import("./pages/app/kanban"));
 const CalenderPage = lazy(() => import("./pages/app/calendar"));
-const EcommercePage = lazy(() => import("./pages/ecommerce"));
 
 //Ecommerce-Pages
 
-const Dashboard = lazy(() => import("./pages/dashboard"));
+const EcommercePage = lazy(() => import("./pages/ecommerce"));
 const UploadFiles = lazy(() => import("./pages/filesUploads/fileupload"));
 const ScheduleTask = lazy(() => import("./pages/showTableData/page"));
 const MediaTable = lazy(() => import("./pages/mediaTable/media"));

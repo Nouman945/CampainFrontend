@@ -11,7 +11,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLoginMutation } from "@/store/api/auth/authApiSlice";
 import { setUser } from "@/store/api/auth/authSlice";
 import { toast } from "react-toastify";
-
 const schema = yup
   .object({
     email: yup.string().email("Invalid email").required("Email is Required"),
@@ -34,7 +33,6 @@ const LoginForm = () => {
   });
   const navigate = useNavigate();
   const onSubmit = async (data) => {
-    console.log("data",data);
     try {
       const response = await login(data);
 
@@ -59,7 +57,7 @@ const LoginForm = () => {
     }
   };
 
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ">
@@ -81,8 +79,7 @@ const LoginForm = () => {
         error={errors.password}
         className="h-[48px]"
       />
-
-      {/* <div className="flex justify-between">
+      <div className="flex justify-between">
         <Checkbox
           value={checked}
           onChange={() => setChecked(!checked)}
@@ -94,7 +91,7 @@ const LoginForm = () => {
         >
           Forgot Password?{" "}
         </Link>
-      </div> */}
+      </div>
 
       <Button
         type="submit"
