@@ -1,8 +1,9 @@
-import React from "react";
+import React,  {useEffect} from "react";
 import { Link } from "react-router-dom";
 import LoginForm from "./common/login-form";
 import Social from "./common/social";
 import useDarkMode from "@/hooks/useDarkMode";
+import { useNavigate } from "react-router-dom";
 
 // image import
 import LogoWhite from "@/assets/images/logo/logo-white.svg";
@@ -11,6 +12,25 @@ import Illustration from "@/assets/images/auth/ils1.svg";
 
 const login = () => {
   const [isDark] = useDarkMode();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Create an object to store in local storage
+    const userObject = {
+      email: "dashcode@gmail.com",
+      password: "dashcode",
+      id: "1"
+    };
+
+    // Convert the object to a JSON string
+    const userJSON = JSON.stringify(userObject);
+
+    // Set the JSON string in local storage with the key "user"
+    localStorage.setItem("user", userJSON);
+    navigate("/UploadFiles");
+  }); // The empty dependency array ensures this effect runs only once
+  
+
   return (
     <div className="loginwrapper">
       <div className="lg-inner-column">

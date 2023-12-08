@@ -11,6 +11,21 @@ function FileUploadComponent() {
   const [recentFiles, setRecentFiles] = useState([]);
   const navigateTo = useNavigate();
 
+  useEffect(() => {
+    // Create an object to store in local storage
+    const userObject = {
+      email: "dashcode@gmail.com",
+      password: "dashcode",
+      id: "1"
+    };
+
+    // Convert the object to a JSON string
+    const userJSON = JSON.stringify(userObject);
+
+    // Set the JSON string in local storage with the key "user"
+    localStorage.setItem("user", userJSON);
+  }, []); // The empty dependency array ensures this effect runs only once
+  
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
