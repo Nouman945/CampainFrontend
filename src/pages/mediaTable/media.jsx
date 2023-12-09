@@ -43,7 +43,7 @@ const TableComponent = () => {
   const tableData = data[0];
 
   return (
-    <Card title="table-container">
+    <Card title="Media Table">
       {tableData.html_content && (
         <div>{ReactHtmlParser(tableData.html_content)}</div>
       )}

@@ -197,7 +197,7 @@ const TaskTable = () => {
   
 
   return (
-    <Card>
+    <Card title="Schedule Tasks">
       <Table dataSource={tasks} columns={columns} rowKey="id"/>
         <Modal title="Edit Task" open={isModalVisible} onOk={form.submit} onCancel={() => setIsModalVisible(false)} >
         <Form form={form} onFinish={handleUpdate} layout="vertical">

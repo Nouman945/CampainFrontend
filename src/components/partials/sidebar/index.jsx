@@ -31,7 +31,7 @@ const Sidebar = () => {
   // skin
   const [skin] = useSkin();
   return (
-    <div className={isSemiDark ? "dark" : ""}>
+    <div className={isSemiDark ? "dark" : "dark"}>
       <div
         className={`sidebar-wrapper bg-white dark:bg-slate-800     ${
           collapsed ? "w-[72px] close_sidebar" : "w-[248px]"

@@ -15,14 +15,14 @@ export const menuItems = [
   {
     title: "Schedule Task",
     isHide: true,
-    icon: "heroicons:film",
+    icon: "heroicons-outline:calendar",
     link: "ScheduleTask",
   },
 
   {
     title: "Media",
     isHide: true,
-    icon: "heroicons:film",
+    icon: "heroicons-outline:document",
     link: "MediaTable",
   },
 
@@ -36,23 +36,23 @@ export const menuItems = [
   {
     title: "KPI Analysis",
     isHide: true,
-    icon: "heroicons-outline:clipboard-check",
+    icon: "heroicons-outline:clipboard-list",
     link: "KPIAnalysis",
   },
 
   {
     title: "FilesUpload",
     isHide: true,
-    icon: "heroicons:shopping-bag",
+    icon: "heroicons:arrow-up-tray",
     link: "UploadFiles",
   },
 
-  {
-    title: "KPI Key Metrics",
-    isHide: false,
-    icon: "heroicons:shopping-bag",
-    link: "metrices",
-  },
+  // {
+  //   title: "KPI Key Metrics",
+  //   isHide: false,
+  //   icon: "heroicons:shopping-bag",
+  //   link: "metrices",
+  // },
 
 
 
@@ -96,12 +96,12 @@ export const menuItems = [
   //   title: "apps",
   // },
 
-  {
-    title: "Chat",
-    isHide: true,
-    icon: "heroicons-outline:chat",
-    link: "chat",
-  },
+  // {
+  //   title: "Chat",
+  //   isHide: true,
+  //   icon: "heroicons-outline:chat",
+  //   link: "chat",
+  // },
 
   // {
   //   title: "Email",
