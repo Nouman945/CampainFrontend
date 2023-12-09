@@ -47,6 +47,13 @@ export const menuItems = [
     link: "UploadFiles",
   },
 
+  {
+    title: "KPI Key Metrics",
+    isHide: false,
+    icon: "heroicons:shopping-bag",
+    link: "metrices",
+  },
+
 
 
   // {

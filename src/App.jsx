@@ -118,6 +118,7 @@ const ScheduleTask = lazy(() => import("./pages/showTableData/page"));
 const MediaTable = lazy(() => import("./pages/mediaTable/media"));
 const CampaignDataDashboard = lazy(() => import("./pages/campainBudget/campainBudget"));
 const KPIAnalysis = lazy(() => import("./pages/KPIAnalysis/kpi-analysis"));
+const Metrices = lazy(() => import("./pages/metrics/metrices"));
 
 import Loading from "@/components/Loading";
 import { ProductDetails } from "./pages/ecommerce/productDetails";
@@ -238,7 +239,8 @@ function App() {
           <Route path="MediaTable" element={<MediaTable />} />
           <Route path="CampaignBudget" element={<CampaignDataDashboard />} />
           <Route path="KPIAnalysis" element={<KPIAnalysis />} />
-
+          <Route path="metrices" element={<Metrices />} />
+          
 
           <Route path="*" element={<Navigate to="/404" />} />
         </Route>

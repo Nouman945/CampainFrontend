@@ -4,6 +4,22 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 import moment from 'moment'; // For date formatting
 import "./customStyles.css";
 
+function CustomTick({ x, y, payload }) {
+    const currentDate = new Date();
+    const threeMonthsAgo = new Date(currentDate.setMonth(currentDate.getMonth() - 3));
+    const tickDate = new Date(payload.value);
+
+    const isLastThreeMonths = tickDate >= threeMonthsAgo;
+
+    return (
+        <g transform={`translate(${x},${y})`}>
+            <text x={0} y={0} dy={16} fill={isLastThreeMonths ? 'red' : 'black'} textAnchor="middle">
+                {payload.value}
+            </text>
+        </g>
+    );
+}
+
 function ForecastModal({ isVisible, data, onClose }) {
     // Format the data for the chart
     const formattedData = data ? data.dates.map((date, index) => ({
@@ -23,7 +39,7 @@ function ForecastModal({ isVisible, data, onClose }) {
                 <br />
                 <LineChart width={600} height={300} data={formattedData}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="date" />
+                    <XAxis dataKey="date" tick={<CustomTick />} />
                     <YAxis />
                     <Tooltip />
                     <Line type="monotone" dataKey="value" stroke="#82ca9d" />
