@@ -16,7 +16,7 @@ const TaskTable = () => {
 
   const fetchData = async (fileId) => {
     try {
-      const response = await fetch(`https://django-apis-0a980656a9f1.herokuapp.com/ tasks/?file_id=${fileId}`);
+      const response = await fetch(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/?file_id=${fileId}`);
       const jsonData = await response.json();
       setTasks(jsonData);
     } catch (error) {
@@ -57,7 +57,7 @@ const TaskTable = () => {
       }
   
       // Make the API call
-      await axios.put(`https://django-apis-0a980656a9f1.herokuapp.com/ tasks/${editingTask.id}/`, {
+      await axios.put(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${editingTask.id}/`, {
         ...values,
         start_date: values.start_date.format('YYYY-MM-DD'),
         end_date: values.end_date.format('YYYY-MM-DD'),
@@ -80,7 +80,7 @@ const TaskTable = () => {
       setTasks(updatedTasks);
   
       // Make the API call
-      await axios.delete(`https://django-apis-0a980656a9f1.herokuapp.com/ tasks/${taskId}/`);
+      await axios.delete(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${taskId}/`);
   
       notification.success({ message: 'Task deleted successfully!' });
     } catch (error) {
@@ -185,7 +185,7 @@ const TaskTable = () => {
       }
   
       // Make the API call
-      await axios.patch(`https://django-apis-0a980656a9f1.herokuapp.com/ tasks/${taskId}/`, { urgency });
+      await axios.patch(`https://django-apis-0a980656a9f1.herokuapp.com/tasks/${taskId}/`, { urgency });
   
       notification.success({ message: 'Urgency updated successfully!' });
     } catch (error) {

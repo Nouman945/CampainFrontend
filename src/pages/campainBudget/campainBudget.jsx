@@ -42,7 +42,7 @@ function CampaignDataDashboard() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`https://django-apis-0a980656a9f1.herokuapp.com/ campaign-data/by-file-upload/${selectedFileId}/`);
+      const response = await fetch(`https://django-apis-0a980656a9f1.herokuapp.com/campaign-data/by-file-upload/${selectedFileId}/`);
       const jsonData = await response.json();
       setData(jsonData);
 

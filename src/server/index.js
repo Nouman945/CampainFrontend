@@ -60,6 +60,6 @@ createServer({
     ShopServerConfig(this);
     calendarServerConfig(this);
     this.timing = 500;
-    this.passthrough('https://django-apis-0a980656a9f1.herokuapp.com/ *');
+    this.passthrough('https://django-apis-0a980656a9f1.herokuapp.com/*');
   },
 });

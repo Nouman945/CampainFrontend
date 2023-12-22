@@ -8,7 +8,7 @@ function ApiDisplay() {
 
     useEffect(() => {
         // Fetch data from your Django API when the component mounts
-        fetch("https://django-apis-0a980656a9f1.herokuapp.com/ generate-data/")
+        fetch("https://django-apis-0a980656a9f1.herokuapp.com/generate-data/")
             .then((response) => response.json())
             .then((data) => {
                 setResponse(data.response);

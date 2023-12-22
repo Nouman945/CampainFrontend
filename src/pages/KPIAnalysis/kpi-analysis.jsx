@@ -59,7 +59,7 @@ function TableNames() {
     const [isApiDisplayVisible, setIsApiDisplayVisible] = useState(false); // Add this state variable
 
     useEffect(() => {
-        fetch('https://django-apis-0a980656a9f1.herokuapp.com/ get-table-names/')
+        fetch('https://django-apis-0a980656a9f1.herokuapp.com/get-table-names/')
             .then(response => response.json())
             .then(data => {
                 setTables(data);
@@ -93,7 +93,7 @@ function TableNames() {
             bookings: record.rows.flat()
         };
 
-        fetch('https://django-apis-0a980656a9f1.herokuapp.com/ forecast-months/', {
+        fetch('https://django-apis-0a980656a9f1.herokuapp.com/forecast-months/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
