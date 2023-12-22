@@ -17,56 +17,56 @@ const faqmenus = [
 ];
 const items = [
   {
-    title: "How does Dashcode work?",
+    title: "How does BI work?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where i can learn more about using Dashcode?",
+    title: "Where i can learn more about using BI?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Why Dashcode is so important?",
+    title: "Why BI is so important?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where can i find Dashcode?",
+    title: "Where can i find BI?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Why Dashcode is so important?",
+    title: "Why BI is so important?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
 ];
 const items2 = [
   {
-    title: "How does Dashcode work?",
+    title: "How does BI work?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where i can learn more about using Dashcode?",
+    title: "Where i can learn more about using BI?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
 ];
 const items3 = [
   {
-    title: "How does Dashcode work?",
+    title: "How does BI work?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where i can learn more about using Dashcode?",
+    title: "Where i can learn more about using BI?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },
   {
-    title: "Where can i find Dashcode?",
+    title: "Where can i find BI?",
     content:
       "Jornalists call this critical, introductory section the  and when bridge properly executed, it's the that carries your reader from anheadine try at attention-grabbing to the body of your blog post.",
   },

@@ -16,7 +16,7 @@ const TableComponent = () => {
 
     // Fetch the data from your API endpoint here
     if(selectedFileId){
-      fetch(`https://django-apis-0a980656a9f1.herokuapp.com/media/recent-files/${selectedFileId}/`)
+      fetch(`https://django-apis-0a980656a9f1.herokuapp.com/ media/recent-files/${selectedFileId}/`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);

@@ -52,7 +52,7 @@ const register2 = () => {
               </div>
             </div>
             <div className="auth-footer text-center">
-              Copyright 2021, Dashcode All Rights Reserved.
+              Copyright 2021, BI All Rights Reserved.
             </div>
           </div>
         </div>

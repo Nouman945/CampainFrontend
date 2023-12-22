@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from "@/components/ui/Card";
 import Fileinput from '@/components/ui/Fileinput';
-import { Table, Button } from 'antd';
+import { Table, Button, Popconfirm } from 'antd'; // Import Popconfirm
 import { useNavigate } from 'react-router-dom';
 
 function FileUploadComponent() {
@@ -25,7 +25,7 @@ function FileUploadComponent() {
     // Set the JSON string in local storage with the key "user"
     localStorage.setItem("user", userJSON);
   }, []); // The empty dependency array ensures this effect runs only once
-  
+
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
@@ -44,7 +44,7 @@ function FileUploadComponent() {
     setUploading(true);
 
     try {
-      const response = await fetch('https://django-apis-0a980656a9f1.herokuapp.com/upload/', {
+      const response = await fetch('https://django-apis-0a980656a9f1.herokuapp.com/ upload/', {
         method: 'POST',
         body: formData,
       });
@@ -68,7 +68,7 @@ function FileUploadComponent() {
 
   const fetchRecentFiles = async () => {
     try {
-      const response = await fetch('https://django-apis-0a980656a9f1.herokuapp.com/recent-files/');
+      const response = await fetch('https://django-apis-0a980656a9f1.herokuapp.com/ recent-files/');
       const data = await response.json();
 
       // Extract the filename from the URL
@@ -109,16 +109,44 @@ function FileUploadComponent() {
       dataIndex: 'actions',
       key: 'actions',
       render: (text, record) => (
-        <Button onClick={() => handleAnalyzeClick(record.id)} style={{ marginRight: 8 }}>Analyze</Button>
-        // <Button
-        //   type="primary"
-        //   onClick={() => handleAnalyzeClick(record.id)}
-        // >
-        //   Analyze
-        // </Button>
+        <div>
+          <Button onClick={() => handleAnalyzeClick(record.id)} style={{ marginRight: 8 }}>Analyze</Button>
+          <Popconfirm
+            title="Are you sure you want to remove this file?"
+            onConfirm={() => handleRemoveClick(record.id)} // Handle remove click
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button type="danger">Remove</Button>
+          </Popconfirm>
+        </div>
       ),
     },
   ];
+
+  const handleRemoveClick = async (fileId) => {
+    try {
+      const response = await fetch(`https://django-apis-0a980656a9f1.herokuapp.com/ remove-file/${fileId}/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+  
+      if (response.ok) {
+        // Refresh the list of recent files after removal
+        fetchRecentFiles();
+        setMessage('File removed successfully.');
+      } else {
+        const errorData = await response.json();
+        setMessage(errorData.error || 'An error occurred during file removal.');
+      }
+    } catch (error) {
+      console.error('Error removing file:', error);
+      setMessage('An error occurred during file removal.');
+    }
+  };
+
 
   const handleAnalyzeClick = (fileId) => {
     localStorage.setItem('selectedFileId', fileId);

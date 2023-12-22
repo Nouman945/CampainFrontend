@@ -119,6 +119,7 @@ const MediaTable = lazy(() => import("./pages/mediaTable/media"));
 const CampaignDataDashboard = lazy(() => import("./pages/campainBudget/campainBudget"));
 const KPIAnalysis = lazy(() => import("./pages/KPIAnalysis/kpi-analysis"));
 const Metrices = lazy(() => import("./pages/metrics/metrices"));
+const Gemini = lazy(() => import("./pages/KPIAnalysis/gemini"));
 
 import Loading from "@/components/Loading";
 import { ProductDetails } from "./pages/ecommerce/productDetails";
@@ -240,6 +241,7 @@ function App() {
           <Route path="CampaignBudget" element={<CampaignDataDashboard />} />
           <Route path="KPIAnalysis" element={<KPIAnalysis />} />
           <Route path="metrices" element={<Metrices />} />
+          <Route path="PredictiveAnalysis" element={<Gemini />} />
           
 
           <Route path="*" element={<Navigate to="/404" />} />

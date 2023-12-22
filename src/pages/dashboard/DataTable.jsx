@@ -15,7 +15,7 @@ function DataTableView() {
     const selectedFileId = localStorage.getItem('selectedFileId');
     setSelectedFileId(selectedFileId);
     console.log(selectedFileId);
-    fetch(`https://django-apis-0a980656a9f1.herokuapp.com/file-data/${selectedFileId}/`)
+    fetch(`https://django-apis-0a980656a9f1.herokuapp.com/ file-data/${selectedFileId}/`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -85,7 +85,7 @@ function DataTableView() {
 
   // Function to update progress
   const handleUpdate = (id, values) => {
-    fetch(`https://django-apis-0a980656a9f1.herokuapp.com/task-update/${id}/`, {
+    fetch(`https://django-apis-0a980656a9f1.herokuapp.com/ task-update/${id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
