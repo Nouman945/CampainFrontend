@@ -119,7 +119,7 @@ const Header = ({ className = "custom-class" }) => {
           {/* Nav Tools  */}
           <div className="nav-tools flex items-center lg:space-x-6 space-x-3 rtl:space-x-reverse">
             {/* <Language /> */}
-            <SwitchDark />
+            {/* <SwitchDark /> */}
             {/* <MonoChrome /> */}
             {/* <HeaderCart /> */}
             {/* {width >= breakpoints.md && <Message />} */}

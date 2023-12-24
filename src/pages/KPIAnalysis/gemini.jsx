@@ -29,7 +29,7 @@ function ApiDisplay() {
 
     return (
         <Card title="AI Analysis">
-            <button className="btn btn-success" onClick={handleRefresh}>Refresh Data</button>
+            <button className="btn btn-success" onClick={handleRefresh}>Refresh Analysis</button>
             <br/>
             <br/>
             {loading ? (
